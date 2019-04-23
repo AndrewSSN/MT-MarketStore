@@ -2,6 +2,7 @@
     <div class="row">
         <div class="col bg-dark text-white">
             <a class="navbar-brand">MARKET STORE</a>
+            <cart-summary></cart-summary>
         </div>
     </div>
 
@@ -31,7 +32,7 @@
                 </h4>
                 <div class="card-text bg-white p-1">
                     {{item.description}}
-                    <button class="btn btn-success btn-sm float-right">Add</button>
+                    <button class="btn btn-success btn-sm float-right" (click)="addToCart(item)">Add</button>
                 </div>
             </div>
             <!-- page number -->
