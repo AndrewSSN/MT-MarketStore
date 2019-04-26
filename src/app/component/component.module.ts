@@ -7,13 +7,17 @@ import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 import { Cart } from '../model/cart.model';
 import { CartDetailComponent } from './cart-detail/cart-detail.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminAuthComponent } from './admin-auth/admin-auth.component';
 
 @NgModule({
   declarations: [
     StoreComponent,
     CartSummaryComponent,
     CartDetailComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AdminComponent,
+    AdminAuthComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,9 @@ import { CheckoutComponent } from './checkout/checkout.component';
     StoreComponent,
     CartSummaryComponent,
     CartDetailComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AdminComponent,
+    AdminAuthComponent
   ]
 })
 export class ComponentModule { }

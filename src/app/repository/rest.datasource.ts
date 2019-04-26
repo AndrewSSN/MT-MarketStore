@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../model/product.model';
 import { Order } from '../model/order.model';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class RestDataSource {
@@ -25,6 +26,14 @@ export class RestDataSource {
 
     getOrders(): Observable<Order> {
         return this.http.get<Order>(this.baseUrl + 'orders')
+    }
+
+    authenticate(username: string, password: string): Observable<boolean> {
+        return this.http.post<any>(this.baseUrl + 'login', {
+            name: username, password: password
+        }).pipe(map(response => {
+            return response.success;
+        }));
     }
 
 }

@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col bg-info p-2 text-center text-white">
+    <h2>MarketSotre Admin</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col bg-danger mt-2 p-2 text-center text-white" *ngIf="errorMessage!=null">
+    {{errorMessage}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col mt-2">
+    <form class="m-2" #form="ngForm" (ngSubmit)=authenticate(form) novalidate>
+      <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" required name="username" [(ngModel)]="username">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input class="form-control" type="text" name="password" [(ngModel)]="password">
+      </div>
+      <div class="text-center">
+        <button class="btn btn-secondary m-1">Go back</button>
+        <button class="btn btn-primary m-1">Sign In</button>
+      </div>
+    </form>
+  </div>
+</div>
