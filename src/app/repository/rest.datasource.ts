@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../model/product.model';
+import { Order } from '../model/order.model';
 
 @Injectable()
 export class RestDataSource {
@@ -16,6 +17,14 @@ export class RestDataSource {
 
     getProducts(): Observable<Product[]> {
         return this.http.get<Product[]>(this.baseUrl + 'products');
+    }
+
+    saveOrder(order: Order): Observable<Order> {
+        return this.http.post<Order>(this.baseUrl + 'orders', order);
+    }
+
+    getOrders(): Observable<Order> {
+        return this.http.get<Order>(this.baseUrl + 'orders')
     }
 
 }

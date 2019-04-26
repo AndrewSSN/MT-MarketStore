@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductRepository } from './product.repository';
 import { RestDataSource } from './rest.datasource';
+import { OrderRepository } from './order.repository';
 
 @NgModule({
   declarations: [],
@@ -9,7 +10,7 @@ import { RestDataSource } from './rest.datasource';
     HttpClientModule
   ],
   providers: [
-    ProductRepository, RestDataSource
+    ProductRepository, RestDataSource, OrderRepository
   ]
 })
 export class RepositoryModule { }

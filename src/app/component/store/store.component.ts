@@ -26,6 +26,7 @@ export class StoreComponent implements OnInit {
 
   changeCategory(clickedCategory?: string) {
     this.selectedCategory = clickedCategory;
+    this.pageSelected = 0;
   }
 
   get products(): Product[] {

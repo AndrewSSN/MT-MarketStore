@@ -1,12 +1,12 @@
-<div class="float-right">
+<div class="float-right" *ngIf="shouldDisplay()">
   <small>
     Cart:
-    <span *ngIf="cart.itemInCart == 0">(empty)</span>
-    <span *ngIf="cart.itemInCart > 0">{{cart.itemInCart}} item(s)
+    <span *ngIf="cart.itemCount == 0">(empty)</span>
+    <span *ngIf="cart.itemCount > 0">{{cart.itemCount}} item(s)
       {{ (cart.totalAmount) | currency:'USD':symbol:'2.2-2' }}</span>
   </small>
 
-  <button class="btn btn-sm bg-dark text-white" [disabled]="cart.itemInCart == 0">
+  <button class="btn btn-sm bg-dark text-white" [disabled]="cart.itemCount == 0" routerLink="/cart">
     <i class="fa fa-shopping-cart"></i>
   </button>
 </div>

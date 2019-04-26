@@ -1,53 +1,45 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col bg-dark text-white">
-            <a class="navbar-brand">MARKET STORE</a>
-            <cart-summary></cart-summary>
-        </div>
+<div class="row">
+
+    <!-- Category -->
+    <div class="col-3 p-2">
+        <button class="btn btn-block btn-outline-primary" (click)="changeCategory()">
+            Home
+        </button>
+        <button *ngFor="let item of categories" class="btn btn-outline-primary btn-block"
+            [class.active]="item == selectedCategory" (click)="changeCategory(item)">
+            {{item}}
+        </button>
+        <button class="btn btn-block btn-danger m-t-3">
+            Admin
+        </button>
     </div>
 
-    <div class="row">
-        <!-- Category -->
-        <div class="col-3 p-2">
-            <button class="btn btn-block btn-outline-primary" (click)="changeCategory()">
-                Home
-            </button>
-            <button *ngFor="let item of categories" class="btn btn-outline-primary btn-block"
-                [class.active]="item == selectedCategory" (click)="changeCategory(item)">
-                {{item}}
-            </button>
-            <button class="btn btn-block btn-danger m-t-3">
-                Admin
-            </button>
+    <!-- Product detail -->
+    <div class="col-9 p-2">
+        <!-- Show the products -->
+        <div *ngFor="let item of products" class="card m-1 p-1 bg-light">
+            <h4>{{item.name}}
+                <span class="badge badge-pill badge-primary float-right">
+                    {{ item.price | currency:'USD' : symbol:'2.2-2' }}
+                </span>
+            </h4>
+            <div class="card-text bg-white p-1">
+                {{item.description}}
+                <button class="btn btn-success btn-sm float-right" (click)="addToCart(item)">Add</button>
+            </div>
         </div>
-
-        <!-- Product detail -->
-        <div class="col-9 p-2">
-            <!-- Show the products -->
-            <div *ngFor="let item of products" class="card m-1 p-1 bg-light">
-                <h4>{{item.name}}
-                    <span class="badge badge-pill badge-primary float-right">
-                        {{ item.price | currency:'USD' : symbol:'2.2-2' }}
-                    </span>
-                </h4>
-                <div class="card-text bg-white p-1">
-                    {{item.description}}
-                    <button class="btn btn-success btn-sm float-right" (click)="addToCart(item)">Add</button>
-                </div>
-            </div>
-            <!-- page number -->
-            <div class="form-inline float-left mr-1">
-                <select class="form-control" [value]="productPerPage" (change)="changePageSize($event.target.value)">
-                    <option value="4">4 per Page</option>
-                    <option value="6">6 per Page</option>
-                    <option value="8">8 per Page</option>
-                </select>
-            </div>
-            <div class="btn-group float-right">
-                <button *ngFor="let pg of pageCounter" class="btn btn-outline-primary" (click)="changePage(pg)"
-                    [class.active]="pg == pageSelected">{{pg+1}}</button>
-                <!-- display + 1 -->
-            </div>
+        <!-- page number -->
+        <div class="form-inline float-left mr-1">
+            <select class="form-control" [value]="productPerPage" (change)="changePageSize($event.target.value)">
+                <option value="4">4 per Page</option>
+                <option value="6">6 per Page</option>
+                <option value="8">8 per Page</option>
+            </select>
+        </div>
+        <div class="btn-group float-right">
+            <button *ngFor="let pg of pageCounter" class="btn btn-outline-primary" (click)="changePage(pg)"
+                [class.active]="pg == pageSelected">{{pg+1}}</button>
+            <!-- display + 1 -->
         </div>
     </div>
 </div>
