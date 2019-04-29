@@ -3,10 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreComponent } from './component/store/store.component';
 import { RepositoryModule } from './repository/repository.module';
-import { ComponentModule } from './component/component.module';
 import { ModelModule } from './model/model.module';
+import { StoreModule } from './component/store/store.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,7 @@ import { ModelModule } from './model/model.module';
     BrowserModule,
     AppRoutingModule,
     RepositoryModule,
-    ComponentModule,
+    StoreModule,
     ModelModule
   ],
   providers: [],

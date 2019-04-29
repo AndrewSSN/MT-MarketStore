@@ -35,5 +35,4 @@ export class RestDataSource {
             return response.success;
         }));
     }
-
 }

@@ -8,6 +8,7 @@ import { OrderRepository } from 'src/app/repository/order.repository';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })
+
 export class CheckoutComponent implements OnInit {
   public orderSent: boolean = false;
   public submitted: boolean = false;

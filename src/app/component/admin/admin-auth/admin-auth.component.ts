@@ -22,7 +22,7 @@ export class AdminAuthComponent implements OnInit {
     if (form.valid) {
       this.auth.authenticate(this.username, this.password).subscribe(resp => {
         if (resp) {
-          this.router.navigateByUrl('/admin');
+          this.router.navigateByUrl('/admin/main');
         }
         this.errorMessage = 'Authentication Failed';
       });
